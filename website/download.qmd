@@ -2,22 +2,26 @@
 title: "Download"
 ---
 
-Files are served from the GitHub repository. Each file is an R object (`.rds`), so read it with `readRDS()`.
+Each file is an R object (`.rds`), so read it with `readRDS()`.
 
-| File | Contents | Download |
+| File | Network | Download |
 |---|---|---|
-| `kk-index-b-verified-network.rds` | definitions × sub-elements (`graph`, `biadjacency`) | [download](https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-verified-network.rds) |
-| `kk-index-b-heading-network.rds` | definitions × headings (`graph`, `biadjacency`) | [download](https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-heading-network.rds) |
-| `kk-index-b-work-concept-network-full.rds` | works × sub-elements (`two_mode_graph`), works × headings (`two_mode_heading_graph`), work table (`works`) | [download](https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-work-concept-network-full.rds) |
+| `kk-index-b-verified-network.rds` | definitions × sub-elements (list: `graph`, `biadjacency`) | [download](https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-verified-network.rds) |
+| `kk-index-b-heading-network.rds` | definitions × headings (list: `graph`, `biadjacency`) | [download](https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-heading-network.rds) |
+| `kk-index-b-works-sub-element-network.rds` | works × sub-elements (igraph) | [download](https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-works-sub-element-network.rds) |
+| `kk-index-b-works-heading-network.rds` | works × headings (igraph) | [download](https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-works-heading-network.rds) |
 
 ## Reading the files in R
 
 ```r
 library(igraph)
 
-u <- "https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-verified-network.rds"
-net <- readRDS(gzcon(url(u)))
-g <- net$graph
+base <- "https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/"
+defs <- readRDS(gzcon(url(paste0(base, "kk-index-b-verified-network.rds"))))
+g_defs <- defs$graph
+m_defs <- defs$biadjacency
+
+g_works <- readRDS(gzcon(url(paste0(base, "kk-index-b-works-sub-element-network.rds"))))
 ```
 
-The works file contains three objects: `two_mode_graph`, `two_mode_heading_graph`, and `works`. Read it the same way and select the one you need.
+The definitions files are lists. Take `$graph` for the igraph object and `$biadjacency` for the 0/1 matrix. The works files are igraph objects directly. The work table is not included, but each work vertex carries its `codes`, `n_codes`, `n_concepts`, `year`, `decade`, and `label` attributes.

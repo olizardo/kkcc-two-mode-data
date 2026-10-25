@@ -16,8 +16,8 @@ Boroch's (2016) reanalysis of the same classification supplies the Boroch code l
 |---|---|---|
 | Definitions × sub-elements | 472 sub-elements, 170 codes | `kk-index-b-verified-network.rds` |
 | Definitions × headings | 53 headings, 170 codes | `kk-index-b-heading-network.rds` |
-| Works × sub-elements | 472 sub-elements, 136 works | `kk-index-b-work-concept-network-full.rds` (`two_mode_graph`) |
-| Works × headings | 53 headings, 136 works | `kk-index-b-work-concept-network-full.rds` (`two_mode_heading_graph`) |
+| Works × sub-elements | 472 sub-elements, 136 works | `kk-index-b-works-sub-element-network.rds` |
+| Works × headings | 53 headings, 136 works | `kk-index-b-works-heading-network.rds` |
 
 The files are R objects. Each definitions network stores a 0/1 biadjacency matrix and an igraph graph. Works networks store igraph graphs only. See the [codebook](codebook.qmd) for the attributes and the [download page](download.qmd) for the files.
 

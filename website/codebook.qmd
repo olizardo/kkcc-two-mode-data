@@ -45,4 +45,4 @@ All objects are igraph graphs (bipartite). Vertex `type` is FALSE for element ve
 | `decade` | decade of the year (integer) |
 | `label` | short author-year label |
 
-The works network also stores a `works` table with the columns `work`, `n_codes`, `codes`, and `n_concepts`. A work is keyed by its author set and year. A work can sit under several codes, and a code can hold several works.
+The works files store the bipartite graph only; the work table is not included. A work is keyed by its author set and year. A work can sit under several codes, and a code can hold several works.
