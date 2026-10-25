@@ -1,0 +1,8 @@
+# Quarto temporary directories
+.quarto/
+_site/
+
+# R session files
+.Rhistory
+.RData
+.Rproj.user/

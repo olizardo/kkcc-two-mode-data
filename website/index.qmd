@@ -1,0 +1,50 @@
+---
+title: "Kroeber & Kluckhohn Two-Mode Network Data"
+---
+
+**Preliminary release.** The data are subject to further verification and cleaning. Later versions may change the networks.
+
+## Overview
+
+These are two-mode (bipartite) networks built from the index of Kroeber and Kluckhohn's *Culture: A Critical Review of Concepts and Definitions* (1952). Index B assigns each of the 170 culture definitions (K&K codes) to the element headings and sub-elements under which the monograph indexes it. Index A gives the author and year behind each code. The works network links each of the 136 works to the same sub-elements and headings.
+
+Boroch's (2016) reanalysis of the same classification supplies the Boroch code labels, which are attached as vertex attributes where his Table 2 or appendix covers the same definition.
+
+## Networks
+
+| Network | Nodes | Stored in |
+|---|---|---|
+| Definitions × sub-elements | 472 sub-elements, 170 codes | `kk-index-b-verified-network.rds` |
+| Definitions × headings | 53 headings, 170 codes | `kk-index-b-heading-network.rds` |
+| Works × sub-elements | 472 sub-elements, 136 works | `kk-index-b-work-concept-network-full.rds` (`two_mode_graph`) |
+| Works × headings | 53 headings, 136 works | `kk-index-b-work-concept-network-full.rds` (`two_mode_heading_graph`) |
+
+The files are R objects. Each definitions network stores a 0/1 biadjacency matrix and an igraph graph. Works networks store igraph graphs only. See the [codebook](codebook.qmd) for the attributes and the [download page](download.qmd) for the files.
+
+## How the data were built
+
+Index A and Index B were parsed from the OCR text layer of the 1952 monograph. Parsing errors were corrected where the printed page image settled the reading, and each correction records its basis. Codes that Index A does not list are kept in the networks only when they are linked to an Index B element through the verified-code rules.
+
+## Known limitations
+
+- Most corrections have one reader. A second reader has not yet checked all of them.
+- Some OCR tokens were resolved from the printed sequence rather than the page image, and are flagged as such in the build records.
+- Element labels other than the corrected ones have not all been checked against the page image.
+- Some elements sit under more than one heading. The sub-element network merges same-name elements; use the heading network when the heading matters.
+- A work is keyed by its author set and year. Entries without a year are dropped.
+
+## Rights
+
+The data are derived coded structure: codes, authors, years, element labels and incidence. They contain no definition text or verbatim quotations. The 1952 monograph is publicly available online, and its element labels are included on that basis. Boroch's article is not included.
+
+## Citation
+
+Please cite the data set, and the sources it is derived from:
+
+- Lizardo, Omar. 2026. *Kroeber & Kluckhohn Culture Definitions: Two-Mode Network Data* (preliminary release). Data set. https://olizardo.github.io/kkcc-two-mode-data/
+- Kroeber, A. L., and Clyde Kluckhohn. 1952. *Culture: A Critical Review of Concepts and Definitions.* Papers of the Peabody Museum of American Archaeology and Ethnology 47(1). Cambridge, MA: Harvard University.
+- Boroch, Robert. 2016. "A Formal Concept of Culture in the Classification of Alfred L. Kroeber and Clyde Kluckhohn." *Analecta* XXV(2).
+
+## License
+
+Proposed: Creative Commons Attribution 4.0 (CC BY 4.0). To be confirmed before publication.

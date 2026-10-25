@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "Kroeber & Kluckhohn Two-Mode Network Data"
+  site-url: https://olizardo.github.io/kkcc-two-mode-data
+  search: true
+  repo-url: https://github.com/olizardo/kkcc-two-mode-data
+  navbar:
+    left:
+      - text: "Overview"
+        href: index.qmd
+      - text: "Codebook"
+        href: codebook.qmd
+      - text: "Download"
+        href: download.qmd
+  page-footer: "Preliminary release. Subject to further verification and cleaning."
+
+format:
+  html:
+    theme: flatly
+    toc: true
+
+execute:
+  freeze: auto

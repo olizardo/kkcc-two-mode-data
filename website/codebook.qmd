@@ -1,0 +1,48 @@
+---
+title: "Codebook"
+---
+
+All objects are igraph graphs (bipartite). Vertex `type` is FALSE for element vertices (sub-elements, headings, or works) and TRUE for codes or works, depending on the network. Read the files with `readRDS()`. The library is `igraph`.
+
+## Graph and edge attributes
+
+| Attribute | Level | Meaning |
+|---|---|---|
+| `name` | all vertices | sub-element label, heading label, K&K code, or work label |
+| `built`, `igraph_version`, `source_files`, `caveat` | graph | build date, versions, source files, and a caveat that the Index B data are not fully verified |
+| `n_source_rows` | edge | number of Index B rows behind the tie |
+| `parse_flags` | edge | parse flags of those rows (`ok`, `ocr_corrected`, `code_not_in_index_a`, `junk_name`, `manual_fix`), separated by `; ` |
+
+## Element vertices (sub-element and heading networks)
+
+| Attribute | Meaning |
+|---|---|
+| `node_type` | `sub_element` or `heading` |
+| `headings` | headings the sub-element appears under, separated by `; ` (sub-element network only) |
+| `n_headings` | number of headings the sub-element appears under (sub-element network only) |
+| `n_subelements` | sub-elements under the heading (heading network only) |
+| `n_codes` | codes linked to the element |
+| `has_junk_name`, `has_manual_fix`, `has_ocr_correction` | the element has an edge with that parse flag (sub-element network only) |
+
+## Code vertices (definitions networks)
+
+| Attribute | Meaning |
+|---|---|
+| `kk_group`, `kk_subgroup` | K&K group letter and subgroup (for example `A`, `I`) |
+| `in_index_a`, `in_index_b` | the code appears in Index A or Index B |
+| `n_index_b_elements` | Index B elements under the code |
+| `index_a_authors` | Index A authors listed under the code, with qualifiers |
+| `boroch_code`, `boroch_source` | Boroch's code for the same definition (NA if none), and whether it comes from `table2` or `appendix-only` |
+
+## Work vertices (works networks)
+
+| Attribute | Meaning |
+|---|---|
+| `node_type` | `work` |
+| `codes` | K&K codes the work sits under, separated by `; ` |
+| `n_codes`, `n_concepts` | number of codes and of Index B concepts for the work |
+| `year` | year as printed, with any letter suffix |
+| `decade` | decade of the year (integer) |
+| `label` | short author-year label |
+
+The works network also stores a `works` table with the columns `work`, `n_codes`, `codes`, and `n_concepts`. A work is keyed by its author set and year. A work can sit under several codes, and a code can hold several works.
