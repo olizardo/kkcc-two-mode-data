@@ -4,9 +4,9 @@ project:
 
 website:
   title: "Kroeber & Kluckhohn Two-Mode Network Data"
-  site-url: https://olizardo.github.io/kkcc-two-mode-data
+  site-url: https://olizardo.github.io/definitions-of-culture-two-mode
   search: true
-  repo-url: https://github.com/olizardo/kkcc-two-mode-data
+  repo-url: https://github.com/olizardo/definitions-of-culture-two-mode
   navbar:
     left:
       - text: "Overview"

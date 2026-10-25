@@ -6,16 +6,16 @@ Files are served from the GitHub repository. Each file is an R object (`.rds`), 
 
 | File | Contents | Download |
 |---|---|---|
-| `kk-index-b-verified-network.rds` | definitions × sub-elements (`graph`, `biadjacency`) | [download](https://raw.githubusercontent.com/olizardo/kkcc-two-mode-data/main/data/kk-index-b-verified-network.rds) |
-| `kk-index-b-heading-network.rds` | definitions × headings (`graph`, `biadjacency`) | [download](https://raw.githubusercontent.com/olizardo/kkcc-two-mode-data/main/data/kk-index-b-heading-network.rds) |
-| `kk-index-b-work-concept-network-full.rds` | works × sub-elements (`two_mode_graph`), works × headings (`two_mode_heading_graph`), work table (`works`) | [download](https://raw.githubusercontent.com/olizardo/kkcc-two-mode-data/main/data/kk-index-b-work-concept-network-full.rds) |
+| `kk-index-b-verified-network.rds` | definitions × sub-elements (`graph`, `biadjacency`) | [download](https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-verified-network.rds) |
+| `kk-index-b-heading-network.rds` | definitions × headings (`graph`, `biadjacency`) | [download](https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-heading-network.rds) |
+| `kk-index-b-work-concept-network-full.rds` | works × sub-elements (`two_mode_graph`), works × headings (`two_mode_heading_graph`), work table (`works`) | [download](https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-work-concept-network-full.rds) |
 
 ## Reading the files in R
 
 ```r
 library(igraph)
 
-u <- "https://raw.githubusercontent.com/olizardo/kkcc-two-mode-data/main/data/kk-index-b-verified-network.rds"
+u <- "https://raw.githubusercontent.com/olizardo/definitions-of-culture-two-mode/gh-pages/data/kk-index-b-verified-network.rds"
 net <- readRDS(gzcon(url(u)))
 g <- net$graph
 ```
