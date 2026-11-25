@@ -15,6 +15,10 @@ website:
         href: codebook.qmd
       - text: "Download"
         href: download.qmd
+      - text: "Changelog"
+        href: changelog.qmd
+      - text: "Glossary"
+        href: glossary.qmd
   page-footer: "Preliminary release. Subject to further verification and cleaning."
 
 format:
